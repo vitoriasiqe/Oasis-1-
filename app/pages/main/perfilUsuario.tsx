@@ -57,25 +57,27 @@ const UserDashboard = () => {
           <ProgressBar progress={0.6} color="#1261D7" style={styles.progressBar} />
         </View>
 
-        {/* Gráfico */}
-        <View style={styles.chartContainer}>
-          <Text style={styles.chartTitle}>Tempo de Estudo (Horas)</Text>
-          <BarChart
-            data={data}
-            width={screenWidth * 0.9}
-            height={220}
-            yAxisLabel=""
-            chartConfig={{
-              backgroundGradientFrom: "#1261D7",
-              backgroundGradientTo: "#1261D7",
-              decimalPlaces: 0,
-              barRadius: 10,
-              color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-              labelColor: () => "#FFF",
-            }}
-            style={{ borderRadius: 20 }}
-          />
-        </View>
+     {/* Gráfico */}
+  <View style={styles.chartContainer}>
+    <Text style={styles.chartTitle}>Tempo de Estudo (Horas)</Text>
+  <BarChart
+    data={data}
+    width={screenWidth * 0.9}
+    height={220}
+    yAxisLabel="" // Se você não quiser label no eixo Y, tudo bem
+    yAxisSuffix="h"  // Adicionando o sufixo "h" para horas
+    chartConfig={{
+      backgroundGradientFrom: "#1261D7",
+      backgroundGradientTo: "#1261D7",
+      decimalPlaces: 0,
+      barRadius: 10,
+      color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+      labelColor: () => "#FFF",
+    }}
+    style={{ borderRadius: 20 }}
+  />
+</View>
+
 
         {/* Metas */}
         <View style={styles.section}>
@@ -86,12 +88,10 @@ const UserDashboard = () => {
         </View>
 
         {/* Botões */}
-        <Link href="./EditProfileScreen" asChild>
-          <TouchableOpacity style={styles.button}>
-            <Ionicons name="person-circle-outline" size={24} color="#FFF" />
-            <Text style={styles.buttonText}>Editar Perfil</Text>
-          </TouchableOpacity>
-        </Link>
+        <TouchableOpacity style={styles.button}>
+          <Ionicons name="person-circle-outline" size={24} color="#FFF" />
+          <Text style={styles.buttonText}>Editar Perfil</Text>
+        </TouchableOpacity>
         <TouchableOpacity style={styles.button}>
           <Ionicons name="document-text-outline" size={24} color="#FFF" />
           <Text style={styles.buttonText}>Ver Relatórios</Text>
